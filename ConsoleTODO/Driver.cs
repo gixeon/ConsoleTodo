@@ -1,12 +1,15 @@
 ﻿namespace ConsoleTODO;
 
-public class Main
+public class Driver
 {
 
-    public static void main()
+    public static void Main()
     {
 
+        var view = new ConsoleView();
+        var taskManager = new TaskManager();
 
+        view.Start();
 
     }
 
