@@ -6,12 +6,12 @@ namespace ConsoleTODO
 {
     
     // non-persistent task holding thing; temporary
-    public class TaskManager
+    public class TaskModel
     {
 
         private List<Task> tasks = new List<Task>();
 
-        public TaskManager()
+        public TaskModel()
         {
 
         }
