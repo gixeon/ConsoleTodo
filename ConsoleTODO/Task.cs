@@ -8,7 +8,8 @@ namespace ConsoleTODO
     public class Task
     {
 
-
+        private string taskName;
+        private int priority;
 
     }
 

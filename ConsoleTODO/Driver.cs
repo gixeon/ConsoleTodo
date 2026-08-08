@@ -7,7 +7,8 @@ public class Driver
     {
 
         var view = new ConsoleView();
-        var taskManager = new TaskManager();
+        var inputController = new InputController(view);
+        var taskModel = new TaskModel();
 
         view.Start();
 
