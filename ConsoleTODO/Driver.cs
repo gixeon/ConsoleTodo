@@ -10,7 +10,17 @@ public class Driver
         var inputController = new InputController(view);
         var taskModel = new TaskModel();
 
-        view.Start();
+        Start(inputController, taskModel);
+
+    }
+
+    private static void Start(InputController input, TaskModel model)
+    {
+
+        // model should read the pseudo-csv file then create a list containing the appropriate information
+        // List<Task> taskList = model.readData();
+
+        input.StartMonitoring();
 
     }
 
