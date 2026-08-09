@@ -8,10 +8,13 @@ Made using solely C#
 
 ## To-do
 Model:
-- [ ] 
+
+[ ] Export to a pseudo-csv format
 
 View:
-- [ ] 
+
+[ ] 
 
 Controller:
-- [ ] 
+
+[ ] Actually accept input
