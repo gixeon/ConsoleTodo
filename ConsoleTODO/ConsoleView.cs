@@ -21,7 +21,7 @@ namespace ConsoleTODO
 
         }
 
-        private void MainMenu()
+        public void MainMenu()
         {
 
             Console.WriteLine("""
@@ -33,8 +33,49 @@ namespace ConsoleTODO
 
                 What would you like to do today?
                 """);
+            Console.WriteLine("\n");
 
         }
+
+        public void ViewTask(List<Task> taskList)
+        {
+
+            Console.WriteLine("These are your tasks");
+
+            foreach (var task in taskList)
+            {
+                task.ToString();
+            }
+
+            Console.WriteLine("""
+                What would you like to do?
+                [1] Complete task
+                [2] Edit task
+                [3] Delete task
+                [4] Return to main menu
+                """);
+
+            Console.WriteLine("\n");
+
+        }
+
+        public void CreateTask()
+        {
+
+        }
+
+        public void CheckStatistics()
+        {
+
+        }
+
+        public void ExportTasks()
+        {
+
+
+
+        }
+
 
     }
 
