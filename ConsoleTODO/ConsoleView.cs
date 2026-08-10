@@ -29,8 +29,7 @@ namespace ConsoleTODO
                 [1] View tasks
                 [2] Create a task
                 [3] Save to-do list
-                [4] Export tasks
-                [5] Quit program
+                [4] Quit program
 
                 What would you like to do today?
                 """);
@@ -61,30 +60,31 @@ namespace ConsoleTODO
 
         }
 
-        public void CreateTask()
+        public void PromptTaskInfo()
         {
 
-        }
-
-        public void PromptTaskName()
-        {
+            Console.WriteLine("Task description: ");
 
         }
 
         public void PromptTaskTags()
         {
 
+            Console.WriteLine("Tags: ");
+
         }
 
         public void PromptTaskDueDate()
         {
 
+            Console.WriteLine("Due date: ");
+
         }
 
-        public void ExportTasks()
+        public void SaveTasks()
         {
 
-            Console.WriteLine("Exporting a .csv file to desktop...");
+            Console.WriteLine("Saving tasks to a .csv file in desktop...");
 
         }
 
