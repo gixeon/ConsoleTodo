@@ -28,8 +28,8 @@ namespace ConsoleTODO
                 Welcome to your To-Do List!
                 [1] View tasks
                 [2] Create a task
-                [3] Check statistics
-                [4] Export tasks
+                [3] Save to-do list
+                [4] Quit program
 
                 What would you like to do today?
                 """);
@@ -40,13 +40,14 @@ namespace ConsoleTODO
         public void ViewTask(List<Task> taskList)
         {
 
-            Console.WriteLine("These are your tasks");
+            Console.WriteLine("These are your tasks:");
 
             foreach (var task in taskList)
             {
                 task.ToString();
             }
 
+            Console.WriteLine("\n");
             Console.WriteLine("""
                 What would you like to do?
                 [1] Complete task
@@ -59,21 +60,38 @@ namespace ConsoleTODO
 
         }
 
-        public void CreateTask()
+        public void PromptTaskInfo()
         {
+
+            Console.WriteLine("Task description: ");
 
         }
 
-        public void CheckStatistics()
+        public void PromptTaskTags()
         {
+
+            Console.WriteLine("Tags: ");
 
         }
 
-        public void ExportTasks()
+        public void PromptTaskDueDate()
         {
 
+            Console.WriteLine("Due date: ");
 
+        }
 
+        public void SaveTasks()
+        {
+
+            Console.WriteLine("Saving tasks to a .csv file in desktop...");
+
+        }
+
+        public void Quit()
+        {
+
+            Console.WriteLine("Saving tasks... Closing program...");
         }
 
 
