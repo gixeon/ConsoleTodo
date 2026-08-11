@@ -49,12 +49,11 @@ namespace ConsoleTODO
 
             bool terminateMain = false;
             bool terminateSub = false;
-            console.MainMenu();
 
             while (!terminateMain)
             {
 
-                //int input = int.Parse(Console.ReadLine());
+                console.MainMenu();
                 string rawInput = Console.ReadLine();
 
                 if (!int.TryParse(rawInput, out int input))
@@ -124,12 +123,47 @@ namespace ConsoleTODO
                     } else if (input == (int)MainInputs.CreateTask)
                     {
 
+                        console.PromptTaskInfo();
+                        string taskInfo = Console.ReadLine();
+                        
+                        console.PromptTaskTags();
+                        string rawTaskTags = Console.ReadLine();
+                        List<string> taskTags = new List<string>();
+                        int storeIndex = 0;
 
+                        for (int i = 0; i < rawTaskTags.Length; ++i)
+                        {
+
+                            char c = rawTaskTags[i];
+
+                            if (c == ',' || i == rawTaskTags.Length - 1)
+                            {
+
+                                if (i == rawTaskTags.Length - 1)
+                                {
+
+                                    ++i;
+
+                                }
+
+                                taskTags.Add(rawTaskTags.Substring(storeIndex, i - storeIndex));
+                                storeIndex = i + 1; // +1 to prevent comma; assumes no spaces
+
+                            }
+
+                        }
+
+                        console.PromptTaskDueDate();
+                        string taskDueDate = Console.ReadLine();
+
+                        Task newTask = new Task(taskInfo, taskTags, taskDueDate);
+                        model.StoreTask(newTask);
 
                     } else if (input == (int) MainInputs.SaveList)
                     {
 
-
+                        console.SaveTasks();
+                        model.WriteTasks();
 
                     } else
                     {
@@ -141,6 +175,8 @@ namespace ConsoleTODO
                 } else
                 {
 
+                    console.SaveTasks();
+                    model.WriteTasks();
                     terminateMain = true;
 
                 }
