@@ -32,6 +32,21 @@ namespace ConsoleTODO
 
         }
 
+        public void CompleteTask(int index)
+        {
+
+            Task curr = tasks[index];
+            curr.TaskCompleted = true;
+
+        }
+
+        public void DeleteTask(int index)
+        {
+
+            tasks.RemoveAt(index);
+
+        }
+
         private List<Task> ReadTasks()
         {
 
