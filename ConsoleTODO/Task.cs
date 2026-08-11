@@ -8,7 +8,7 @@ namespace ConsoleTODO
     public class Task
     {
 
-        // constructor
+        // new task constructor
         public Task(string info, int priority, List<string> tags)
         {
 
@@ -16,6 +16,17 @@ namespace ConsoleTODO
             _priority = priority;
             _taskTags = tags;
             _taskCompleted = false;
+
+        }
+
+        // read task constructor
+        public Task(string info, int priority, List<string> tags, bool completion)
+        {
+
+            _taskInfo = info;
+            _priority = priority;
+            _taskTags = tags;
+            _taskCompleted = completion;
 
         }
 
@@ -52,7 +63,7 @@ namespace ConsoleTODO
             set;
         }
 
-        public override string ToString()
+        public string ToSaveString()
         {
 
             string readableTags = "";
@@ -77,8 +88,37 @@ namespace ConsoleTODO
                 
             }
 
-            return $"{_taskInfo}, \"{readableTags}\", {_priority}, {_taskCompleted}";
+            return $"{_taskInfo}|\"{readableTags}\"|{_priority}|{_taskCompleted}";
         
+        }
+
+        public override string ToString()
+        {
+
+            string readableTags = "";
+
+            for (int i = 0; i < _taskTags.Count; ++i)
+            {
+
+                if (i == _taskTags.Count - 1)
+                {
+
+                    string tag = _taskTags[i];
+                    readableTags += tag;
+
+                }
+                else
+                {
+
+                    string tag = _taskTags[i];
+                    readableTags += tag + ",";
+
+                }
+
+            }
+
+            return $"{_taskInfo}, \"{readableTags}\", {_priority}, {_taskCompleted}";
+
         }
 
 
