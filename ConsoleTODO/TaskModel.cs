@@ -25,10 +25,10 @@ namespace ConsoleTODO
 
         }
 
-        public Task GetTask(int index)
+        public List<Task> GetTasks()
         {
 
-            return tasks[index];
+            return tasks;
 
         }
 
