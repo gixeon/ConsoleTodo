@@ -78,22 +78,10 @@ namespace ConsoleTODO
 
                     }
 
-                    string completion = taskRead[3];
-                    bool complete;
-                    if (completion.Equals("false"))
-                    {
-
-                        complete = false;
-
-                    } else
-                    {
-
-                        complete = true;
-
-                    }
+                    bool complete = bool.Parse(taskRead[3]);
 
                     Task newTask = new Task(taskInfo, priority, tags, complete);
-                    tasks.Add(newTask);
+                    reading.Add(newTask);
 
                 }
 

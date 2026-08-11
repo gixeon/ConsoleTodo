@@ -88,7 +88,7 @@ namespace ConsoleTODO
                 
             }
 
-            return $"{_taskInfo}|\"{readableTags}\"|{_priority}|{_taskCompleted}";
+            return $"{_taskInfo}|{_priority}|{readableTags}|{_taskCompleted}";
         
         }
 
@@ -117,7 +117,7 @@ namespace ConsoleTODO
 
             }
 
-            return $"{_taskInfo}, \"{readableTags}\", {_priority}, {_taskCompleted}";
+            return $"{_taskInfo}, {_priority}, \"{readableTags}\", {_taskCompleted}";
 
         }
 
