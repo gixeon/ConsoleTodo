@@ -9,17 +9,18 @@ namespace ConsoleTODO
     {
 
         // constructor
-        public Task(string info, List<string> tags, string due)
+        public Task(string info, int priority, List<string> tags)
         {
 
-            taskInfo = info;
-            taskDue = due;
-            taskTags = tags;
+            _taskInfo = info;
+            _priority = priority;
+            _taskTags = tags;
+            _taskCompleted = false;
 
         }
 
         // properties 
-        private string taskInfo;
+        private string _taskInfo;
 
         public string TaskInfo
         {
@@ -27,15 +28,15 @@ namespace ConsoleTODO
             set;
         }
 
-        private string taskDue;
+        private int _priority;
 
-        public string TaskDue
+        public int Priority
         {
             get;
             set;
         }
 
-        private List<string> taskTags;
+        private List<string> _taskTags;
 
         public List<string> TaskTags
         {
@@ -43,9 +44,41 @@ namespace ConsoleTODO
             set;
         }
 
+        private bool _taskCompleted;
+
+        public bool TaskCompleted
+        {
+            get;
+            set;
+        }
+
         public override string ToString()
         {
-            return $"{taskInfo}, {taskTags}, {taskDue}";
+
+            string readableTags = "";
+
+            for (int i = 0; i < _taskTags.Count; ++i)
+            {
+                
+                if (i == _taskTags.Count - 1)
+                {
+
+                    string tag = _taskTags[i];
+                    readableTags += tag;
+
+                }
+                else
+                {
+
+                    string tag = _taskTags[i];
+                    readableTags += tag + ",";
+
+                }
+                
+            }
+
+            return $"{_taskInfo}, \"{readableTags}\", {_priority}, {_taskCompleted}";
+        
         }
 
 
