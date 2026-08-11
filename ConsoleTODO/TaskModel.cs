@@ -64,12 +64,24 @@ namespace ConsoleTODO
                        != null)
                 {
 
-                    //via commas, turn read information into Task objects
-                    //do something!!!
+                    string[] taskRead = line.Split('|');
+                    
+                    string taskInfo = taskRead[0];
+                    int priority = int.Parse(taskRead[1]);
+                    
+                    List<string> tags = new List<string>();
+                    string[] readableTags = taskRead[2].Split(',');
+                    foreach (string tag in readableTags)
+                    {
 
-                    //Task curr = new Task();
+                        tags.Add(tag);
 
-                    //tasks.Add(curr);
+                    }
+
+                    bool complete = bool.Parse(taskRead[3]);
+
+                    Task newTask = new Task(taskInfo, priority, tags, complete);
+                    reading.Add(newTask);
 
                 }
 
@@ -100,7 +112,7 @@ namespace ConsoleTODO
                 foreach (Task task in tasks)
                 {
 
-                    write.WriteLine(task.ToString());
+                    write.WriteLine(task.ToSaveString());
                 
                 }
 
