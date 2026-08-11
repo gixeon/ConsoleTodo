@@ -69,10 +69,10 @@ namespace ConsoleTODO
                     if (input == (int)MainInputs.ViewTasks)
                     {
 
-                        console.ViewTask(model.GetTasks());
-
                         while (!terminateSub)
                         {
+
+                            console.ViewTask(model.GetTasks());
 
                             rawInput = Console.ReadLine();
 
@@ -89,19 +89,24 @@ namespace ConsoleTODO
                                 if (input == (int)TaskInputs.CompleteTask)
                                 {
 
-
+                                    Console.WriteLine("Which task has been completed? ");
+                                    string index = Console.ReadLine("");
+                                    model.CompleteTask(index);
 
                                 } else if (input == (int)TaskInputs.EditTask)
                                 {
 
-
+                                    Console.WriteLine("Sorry! Not implemented yet");
 
                                 } else if (input == (int)TaskInputs.DeleteTask)
                                 {
 
+                                    Console.WriteLine("Which task would you like to be deleted? ");
+                                    string index = Console.ReadLine("");
+                                    model.DeleteTask(index);
 
-
-                                } else
+                                }
+                                else
                                 {
 
                                     Console.WriteLine("Invalid input!");
@@ -125,7 +130,17 @@ namespace ConsoleTODO
 
                         console.PromptTaskInfo();
                         string taskInfo = Console.ReadLine();
-                        
+
+                        console.PromptTaskPriority();
+                        string taskPriority = Console.ReadLine();
+
+                        if (!int.TryParse(taskPriority, out int priority))
+                        {
+
+                            Console.WriteLine("Invalid priority, defaulting to 0");
+
+                        }
+
                         console.PromptTaskTags();
                         string rawTaskTags = Console.ReadLine();
                         List<string> taskTags = new List<string>();
@@ -153,11 +168,8 @@ namespace ConsoleTODO
 
                         }
 
-                        console.PromptTaskDueDate();
-                        string taskDueDate = Console.ReadLine();
-
-                        Task newTask = new Task(taskInfo, taskTags, taskDueDate);
-                        model.StoreTask(newTask);
+                        Task newTask = new Task(taskInfo, priority, taskTags);
+                        model.AddTask(newTask);
 
                     } else if (input == (int) MainInputs.SaveList)
                     {
@@ -182,21 +194,6 @@ namespace ConsoleTODO
                 }
 
             }
-
-        }
-
-        private void MainMenu()
-        {
-
-        }
-
-        private void TaskMenu()
-        {
-
-        }
-
-        private void CreateTask()
-        {
 
         }
 
