@@ -8,6 +8,17 @@ namespace ConsoleTODO
     public class Task
     {
 
+        // constructor
+        public Task(string info, List<string> tags, string due)
+        {
+
+            taskInfo = info;
+            taskDue = due;
+            taskTags = tags;
+
+        }
+
+        // properties 
         private string taskInfo;
 
         public string TaskInfo
@@ -16,17 +27,17 @@ namespace ConsoleTODO
             set;
         }
 
-        private string due;
+        private string taskDue;
 
-        public string Due
+        public string TaskDue
         {
             get;
             set;
         }
 
-        private List<string> tags;
+        private List<string> taskTags;
 
-        public List<string> Tags
+        public List<string> TaskTags
         {
             get;
             set;
