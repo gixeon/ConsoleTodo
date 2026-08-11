@@ -42,7 +42,12 @@ namespace ConsoleTODO
             get;
             set;
         }
-        
+
+        public override string ToString()
+        {
+            return $"{taskInfo}, {taskTags}, {taskDue}";
+        }
+
 
     }
 

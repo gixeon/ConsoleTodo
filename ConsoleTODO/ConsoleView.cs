@@ -44,7 +44,7 @@ namespace ConsoleTODO
 
             foreach (Task task in tasks)
             {
-                task.ToString();
+                Console.WriteLine(task.ToString());
             }
 
             Console.WriteLine("\n");
