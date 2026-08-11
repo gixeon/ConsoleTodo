@@ -37,12 +37,12 @@ namespace ConsoleTODO
 
         }
 
-        public void ViewTask(List<Task> taskList)
+        public void ViewTask(List<Task> tasks)
         {
 
             Console.WriteLine("These are your tasks:");
 
-            foreach (var task in taskList)
+            foreach (Task task in tasks)
             {
                 task.ToString();
             }
