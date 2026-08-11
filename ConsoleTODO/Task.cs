@@ -8,8 +8,41 @@ namespace ConsoleTODO
     public class Task
     {
 
-        private string taskName;
-        private int priority;
+        // constructor
+        public Task(string info, List<string> tags, string due)
+        {
+
+            taskInfo = info;
+            taskDue = due;
+            taskTags = tags;
+
+        }
+
+        // properties 
+        private string taskInfo;
+
+        public string TaskInfo
+        {
+            get;
+            set;
+        }
+
+        private string taskDue;
+
+        public string TaskDue
+        {
+            get;
+            set;
+        }
+
+        private List<string> taskTags;
+
+        public List<string> TaskTags
+        {
+            get;
+            set;
+        }
+        
 
     }
 
