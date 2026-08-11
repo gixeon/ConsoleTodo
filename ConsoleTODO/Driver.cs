@@ -7,17 +7,10 @@ public class Driver
     {
 
         var view = new ConsoleView();
-        var inputController = new InputController(view);
         var taskModel = new TaskModel();
+        var inputController = new InputController(view, taskModel);
 
-        Start(inputController, taskModel);
-
-    }
-
-    private static void Start(InputController input, TaskModel model)
-    {
-
-        input.StartMonitoring();
+        inputController.StartMonitoring();
 
     }
 
