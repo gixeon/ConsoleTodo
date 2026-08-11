@@ -42,9 +42,11 @@ namespace ConsoleTODO
 
             Console.WriteLine("These are your tasks:");
 
-            foreach (Task task in tasks)
+            for (int i = 0; i < tasks.Count; ++i)
             {
-                Console.WriteLine(task.ToString());
+
+                Console.WriteLine($"{i}) {tasks[i]}");
+
             }
 
             Console.WriteLine("\n");
@@ -74,10 +76,10 @@ namespace ConsoleTODO
 
         }
 
-        public void PromptTaskDueDate()
+        public void PromptTaskPriority()
         {
 
-            Console.WriteLine("Due date: ");
+            Console.WriteLine("Priority: ");
 
         }
 
