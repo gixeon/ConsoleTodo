@@ -91,7 +91,18 @@ namespace ConsoleTODO
 
                                     Console.WriteLine("Which task has been completed? ");
                                     string index = Console.ReadLine();
-                                    model.CompleteTask(index);
+
+                                    if (!int.TryParse(index, out int i))
+                                    {
+
+                                        Console.WriteLine("Invalid input! No changes have been made");
+
+                                    } else
+                                    {
+
+                                        model.CompleteTask(i);
+
+                                    }
 
                                 } else if (input == (int)TaskInputs.EditTask)
                                 {
@@ -103,7 +114,19 @@ namespace ConsoleTODO
 
                                     Console.WriteLine("Which task would you like to be deleted? ");
                                     string index = Console.ReadLine();
-                                    model.DeleteTask(index);
+
+                                    if (!int.TryParse(index, out int i))
+                                    {
+
+                                        Console.WriteLine("Invalid input! No changes have been made");
+
+                                    }
+                                    else
+                                    {
+
+                                        model.DeleteTask(i);
+
+                                    }
 
                                 }
                                 else
