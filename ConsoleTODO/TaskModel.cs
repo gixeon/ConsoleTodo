@@ -18,7 +18,7 @@ namespace ConsoleTODO
 
         }
 
-        public void StoreTask(Task task)
+        public void AddTask(Task task)
         {
 
             tasks.Add(task);
@@ -85,7 +85,7 @@ namespace ConsoleTODO
                 foreach (Task task in tasks)
                 {
 
-                    write.WriteLine($"{task.TaskInfo},{task.TaskTags},{task.TaskDue}");
+                    write.WriteLine(task.ToString());
                 
                 }
 
