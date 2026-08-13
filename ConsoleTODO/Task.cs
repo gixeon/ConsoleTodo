@@ -56,19 +56,19 @@ public class Task
     public string ToSaveString()
     {
 
-        return $"{TaskInfo}|{Priority}|{readableTags()}|{TaskCompleted}";
+        return $"{TaskInfo}|{Priority}|{ReadableTags()}|{TaskCompleted}";
     
     }
 
     public override string ToString()
     {
 
-        return $"{TaskInfo}, {Priority}, \"{readableTags()}\", {TaskCompleted}";
+        return $"{TaskInfo}, {Priority}, \"{ReadableTags()}\", {TaskCompleted}";
 
     }
 
     // helper function to make user-friendly readable tags string
-    private string readableTags()
+    private string ReadableTags()
     {
 
         string readableTags = "";

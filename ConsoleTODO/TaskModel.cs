@@ -11,6 +11,8 @@ namespace ConsoleTODO
 
         private List<Task> tasks = new List<Task>();
 
+        private readonly string saveFileDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "tasks.txt");
+
         public TaskModel()
         {
 
@@ -50,13 +52,12 @@ namespace ConsoleTODO
         private List<Task> ReadTasks()
         {
 
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             List<Task> reading = new List<Task>();
 
             try
             {
 
-                using StreamReader read = new StreamReader(Path.Combine(desktopPath, "tasks.txt"));
+                using StreamReader read = new StreamReader(saveFileDir);
 
                 string line;
                 
@@ -101,12 +102,10 @@ namespace ConsoleTODO
         public void WriteTasks()
         {
 
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
             try
             {
 
-                using StreamWriter write = new StreamWriter(Path.Combine(desktopPath, "tasks.txt"));
+                using StreamWriter write = new StreamWriter(saveFileDir);
 
                 foreach (Task task in tasks)
                 {
