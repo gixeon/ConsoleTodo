@@ -46,9 +46,7 @@ public class InputController
     public void StartMonitoring()
     {
 
-        bool terminateMain = false;
-
-        while (!terminateMain)
+        while (true)
         {
 
             console.MainMenu();
@@ -118,7 +116,7 @@ public class InputController
             else if (input == (int)TaskInputs.EditTask)
             {
 
-                Console.WriteLine("Sorry! Not implemented yet");
+                EditTask();
 
             }
             else if (input == (int)TaskInputs.DeleteTask)
@@ -161,7 +159,18 @@ public class InputController
         else
         {
 
-            model.DeleteTask(i);
+            if (i > model.GetTasks().Count - 1) // - 1 because currently indices printed start at 0
+            {
+
+                console.InvalidInput("Out of range!");
+
+            }
+            else
+            {
+
+                model.DeleteTask(i);
+
+            }
 
         }
 
@@ -182,7 +191,18 @@ public class InputController
         else
         {
 
-            model.CompleteTask(i);
+            if (i > model.GetTasks().Count - 1) // - 1 because currently indices printed start at 0
+            {
+
+                console.InvalidInput("Out of range!");
+
+            }
+            else
+            {
+
+                model.CompleteTask(i);
+
+            }
 
         }
 
@@ -236,7 +256,7 @@ public class InputController
 
     }
 
-    public int ParseInput()
+    private int ParseInput()
     {
 
         string rawInput = Console.ReadLine();
@@ -249,6 +269,38 @@ public class InputController
         }
 
         return input;
+
+    }
+
+    private void EditTask()
+    {
+
+        Console.WriteLine("Which task would you like to edit? ");
+        string index = Console.ReadLine();
+
+        if (!int.TryParse(index, out int i))
+        {
+
+            console.InvalidInput("No changes have been made!");
+
+        }
+        else
+        {
+
+            if (i > model.GetTasks().Count - 1) // - 1 because currently indices printed start at 0
+            {
+
+                console.InvalidInput("Out of range!");
+
+            }
+            else
+            {
+
+                Console.WriteLine("Editing task...");
+
+            }
+
+        }
 
     }
 
