@@ -55,14 +55,7 @@ public class InputController
             console.MainMenu();
 
             // should fr encapsulate this considering its used a lot
-            string rawInput = Console.ReadLine();
-
-            if (!int.TryParse(rawInput, out int input))
-            {
-
-                console.InvalidInput();
-
-            }
+            int input = ParseInput();
             // up to here
 
             if (input != (int)MainInputs.Quit)
@@ -76,14 +69,7 @@ public class InputController
 
                         console.ViewTask(model.GetTasks());
 
-                        rawInput = Console.ReadLine();
-
-                        if (!int.TryParse(rawInput, out input))
-                        {
-
-                            console.InvalidInput();
-
-                        }
+                        input = ParseInput();
 
                         if (input != (int)TaskInputs.MainMenu)
                         {
@@ -248,6 +234,22 @@ public class InputController
 
         Task newTask = new Task(taskInfo, priority, taskTags);
         model.AddTask(newTask);
+
+    }
+
+    public int ParseInput()
+    {
+
+        string rawInput = Console.ReadLine();
+
+        if (!int.TryParse(rawInput, out int input))
+        {
+
+            console.InvalidInput();
+
+        }
+
+        return input;
 
     }
 
