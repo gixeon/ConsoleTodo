@@ -103,7 +103,6 @@ namespace ConsoleTODO
 
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-
             try
             {
 
