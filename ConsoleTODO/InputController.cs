@@ -60,7 +60,7 @@ public class InputController
             if (!int.TryParse(rawInput, out int input))
             {
 
-                Console.WriteLine("Invalid input!");
+                console.InvalidInput();
 
             }
             // up to here
@@ -81,7 +81,7 @@ public class InputController
                         if (!int.TryParse(rawInput, out input))
                         {
 
-                            Console.WriteLine("Invalid input!");
+                            console.InvalidInput();
 
                         }
 
@@ -107,7 +107,7 @@ public class InputController
                             else
                             {
 
-                                Console.WriteLine("Invalid input!");
+                                console.InvalidInput();
 
                             }
 
@@ -135,7 +135,7 @@ public class InputController
                 } else
                 {
 
-                    Console.WriteLine("Invalid input!");
+                    console.InvalidInput();
 
                 }
 
@@ -170,7 +170,7 @@ public class InputController
         if (!int.TryParse(index, out int i))
         {
 
-            Console.WriteLine("Invalid input! No changes have been made");
+            console.InvalidInput("No changes have been made!");
 
         }
         else
@@ -191,7 +191,7 @@ public class InputController
         if (!int.TryParse(index, out int i))
         {
 
-            Console.WriteLine("Invalid input! No changes have been made");
+            console.InvalidInput("No changes have been made!");
 
         }
         else
@@ -215,7 +215,7 @@ public class InputController
         if (!int.TryParse(taskPriority, out int priority))
         {
 
-            Console.WriteLine("Invalid priority, defaulting to 0");
+            console.InvalidInput("Defaulting to 0");
 
         }
 

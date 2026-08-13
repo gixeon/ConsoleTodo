@@ -94,6 +94,14 @@ namespace ConsoleTODO
         {
 
             Console.WriteLine("Saving tasks... Closing program...");
+
+        }
+
+        public void InvalidInput(string extra = "")
+        {
+
+            Console.WriteLine($"Invalid input! {extra}");
+
         }
 
 
