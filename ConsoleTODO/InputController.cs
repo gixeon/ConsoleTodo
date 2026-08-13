@@ -47,91 +47,90 @@ public class InputController
     {
 
         bool terminateMain = false;
-        bool terminateSub = false;
 
         while (!terminateMain)
         {
 
             console.MainMenu();
-
-            // should fr encapsulate this considering its used a lot
             int input = ParseInput();
-            // up to here
 
-            if (input != (int)MainInputs.Quit)
-            {
-
-                if (input == (int)MainInputs.ViewTasks)
-                {
-
-                    while (!terminateSub)
-                    {
-
-                        console.ViewTask(model.GetTasks());
-
-                        input = ParseInput();
-
-                        if (input != (int)TaskInputs.MainMenu)
-                        {
-
-                            if (input == (int)TaskInputs.CompleteTask)
-                            {
-
-                                CompleteTask();
-
-                            } else if (input == (int)TaskInputs.EditTask)
-                            {
-
-                                Console.WriteLine("Sorry! Not implemented yet");
-
-                            } else if (input == (int)TaskInputs.DeleteTask)
-                            {
-
-                                DeleteTask();
-
-                            }
-                            else
-                            {
-
-                                console.InvalidInput();
-
-                            }
-
-                        } else
-                        {
-
-                            terminateSub = true;
-
-                        }
-
-                    }
-
-                    terminateSub = false;
-
-                } else if (input == (int)MainInputs.CreateTask)
-                {
-
-                    CreateTask();
-
-                } else if (input == (int) MainInputs.SaveList)
-                {
-
-                    SaveList();
-
-                } else
-                {
-
-                    console.InvalidInput();
-
-                }
-
-            } else
+            if (input == (int)MainInputs.Quit)
             {
 
                 // before closing the program, it will save the file just in case you forgot to save it
                 // todo: add a "should i save the list or nah?" confirmation thing
                 SaveList();
-                terminateMain = true;
+                break;
+
+            }
+
+            if (input == (int)MainInputs.ViewTasks)
+            {
+
+                ViewTasks();
+
+            } else if (input == (int)MainInputs.CreateTask)
+            {
+
+                CreateTask();
+
+            } else if (input == (int) MainInputs.SaveList)
+            {
+
+                SaveList();
+
+            } else
+            {
+
+                console.InvalidInput();
+
+            }
+
+        }
+
+    }
+
+    private void ViewTasks()
+    {
+
+        int input;
+
+        while (true)
+        {
+
+            console.ViewTask(model.GetTasks());
+            input = ParseInput();
+
+            // early exit where if its main menu itll just leave the branch and not do anything
+            if (input == (int)TaskInputs.MainMenu)
+            {
+
+                break;
+
+            }
+                
+            if (input == (int)TaskInputs.CompleteTask)
+            {
+
+                CompleteTask();
+
+            }
+            else if (input == (int)TaskInputs.EditTask)
+            {
+
+                Console.WriteLine("Sorry! Not implemented yet");
+
+            }
+            else if (input == (int)TaskInputs.DeleteTask)
+            {
+
+                DeleteTask();
+
+            }
+            else
+            {
+
+                console.InvalidInput();
 
             }
 
