@@ -8,10 +8,7 @@ namespace ConsoleTODO
     public class ConsoleView
     {
 
-        public ConsoleView()
-        {
-
-        }
+        public ConsoleView() { }
 
         public void Start()
         {

@@ -244,7 +244,7 @@ public class InputController
 
                 }
 
-                taskTags.Add(rawTaskTags.Substring(storeIndex, i - storeIndex));
+                taskTags.Add(rawTaskTags.Substring(storeIndex, i - storeIndex).ToLower());
                 storeIndex = i + 1; // +1 to prevent comma; assumes no spaces
 
             }
