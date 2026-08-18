@@ -43,7 +43,7 @@ public class InputController
 
     }
 
-    public void StartMonitoring()
+    public void StartProgram()
     {
 
         while (true)
@@ -92,7 +92,6 @@ public class InputController
     {
 
         int input;
-
         while (true)
         {
 

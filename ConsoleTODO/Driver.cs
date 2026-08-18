@@ -10,7 +10,7 @@ public class Driver
         var taskModel = new TaskModel();
         var inputController = new InputController(view, taskModel);
 
-        inputController.StartMonitoring();
+        inputController.StartProgram();
 
     }
 

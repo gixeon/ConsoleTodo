@@ -29,43 +29,17 @@ public class Task
 
     }
 
-    public string TaskInfo
-    {
-        get;
-        set;
-    }
+    public string TaskInfo { get; set; }
 
-    public int Priority
-    {
-        get;
-        set;
-    }
+    public int Priority { get; set; }
 
-    public List<string> TaskTags
-    {
-        get;
-        set;
-    }
+    public List<string> TaskTags { get; set; }
 
-    public bool TaskCompleted
-    {
-        get;
-        set;
-    }
+    public bool TaskCompleted { get; set; }
 
-    public string ToSaveString()
-    {
+    public string ToSaveString() => return $"{TaskInfo}|{Priority}|{ReadableTags()}|{TaskCompleted}";
 
-        return $"{TaskInfo}|{Priority}|{ReadableTags()}|{TaskCompleted}";
-    
-    }
-
-    public override string ToString()
-    {
-
-        return $"{TaskInfo}, {Priority}, \"{ReadableTags()}\", {TaskCompleted}";
-
-    }
+    public override string ToString() => return $"{TaskInfo}, {Priority}, \"{ReadableTags()}\", {TaskCompleted}";
 
     // helper function to make user-friendly readable tags string
     private string ReadableTags()
