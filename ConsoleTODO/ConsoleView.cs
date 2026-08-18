@@ -80,21 +80,21 @@ namespace ConsoleTODO
         public void PromptTaskInfo()
         {
 
-            Console.WriteLine("Task description: ");
+            Console.Write("Task description: ");
 
         }
 
         public void PromptTaskTags()
         {
 
-            Console.WriteLine("Tags (separated by commas, no spaces): ");
+            Console.Write("Tags (separated by commas, no spaces): ");
 
         }
 
         public void PromptTaskPriority()
         {
 
-            Console.WriteLine("Priority (1-4): ");
+            Console.Write("Priority (1-4): ");
 
         }
 
