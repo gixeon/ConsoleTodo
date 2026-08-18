@@ -13,6 +13,7 @@ namespace ConsoleTODO
         public void Start()
         {
 
+            Console.Clear();
             Console.WriteLine("Starting program\n");
             MainMenu();
 
@@ -21,6 +22,7 @@ namespace ConsoleTODO
         public void MainMenu()
         {
 
+            Console.Clear();
             Console.WriteLine("""
                 Welcome to your To-Do List!
                 [1] View tasks
@@ -37,6 +39,7 @@ namespace ConsoleTODO
         public void ViewTask(List<Task> tasks)
         {
 
+            Console.Clear();
             Console.WriteLine("These are your tasks:");
 
             for (int i = 0; i < tasks.Count; ++i)
@@ -50,9 +53,8 @@ namespace ConsoleTODO
             Console.WriteLine("""
                 What would you like to do?
                 [1] Complete task
-                [2] Edit task
-                [3] Delete task
-                [4] Return to main menu
+                [2] Delete task
+                [3] Return to main menu
                 """);
 
             Console.WriteLine("\n");
@@ -83,6 +85,7 @@ namespace ConsoleTODO
         public void SaveTasks()
         {
 
+            Console.Clear();
             Console.WriteLine("Saving tasks to a .csv file in desktop...");
 
         }
@@ -90,6 +93,7 @@ namespace ConsoleTODO
         public void Quit()
         {
 
+            Console.Clear();
             Console.WriteLine("Saving tasks... Closing program...");
 
         }

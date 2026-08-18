@@ -37,9 +37,9 @@ public class Task
 
     public bool TaskCompleted { get; set; }
 
-    public string ToSaveString() => return $"{TaskInfo}|{Priority}|{ReadableTags()}|{TaskCompleted}";
+    public string ToSaveString() => $"{TaskInfo}|{Priority}|{ReadableTags()}|{TaskCompleted}";
 
-    public override string ToString() => return $"{TaskInfo}, {Priority}, \"{ReadableTags()}\", {TaskCompleted}";
+    public override string ToString() => $"{TaskInfo}, {Priority}, \"{ReadableTags()}\", {TaskCompleted}";
 
     // helper function to make user-friendly readable tags string
     private string ReadableTags()
