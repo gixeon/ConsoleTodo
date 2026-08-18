@@ -43,6 +43,8 @@ public class InputController
 
     }
 
+
+    // main menu methods
     public void StartProgram()
     {
 
@@ -88,6 +90,63 @@ public class InputController
 
     }
 
+    private void CreateTask()
+    {
+
+        console.PromptTaskInfo();
+        string taskInfo = Console.ReadLine();
+
+        console.PromptTaskPriority();
+        string taskPriority = Console.ReadLine();
+
+        if (!int.TryParse(taskPriority, out int priority))
+        {
+
+            console.InvalidInput("Defaulting to 0");
+
+        }
+
+        console.PromptTaskTags();
+        string rawTaskTags = Console.ReadLine();
+        List<string> taskTags = new List<string>();
+        int storeIndex = 0;
+
+        for (int i = 0; i < rawTaskTags.Length; ++i)
+        {
+
+            char c = rawTaskTags[i];
+
+            if (c == ',' || i == rawTaskTags.Length - 1)
+            {
+
+                if (i == rawTaskTags.Length - 1)
+                {
+
+                    ++i;
+
+                }
+
+                taskTags.Add(rawTaskTags.Substring(storeIndex, i - storeIndex).ToLower());
+                storeIndex = i + 1; // +1 to prevent comma; assumes no spaces
+
+            }
+
+        }
+
+        Task newTask = new Task(taskInfo, priority, taskTags);
+        model.AddTask(newTask);
+
+    }
+
+    private void SaveList()
+    {
+
+        console.SaveTasks();
+        model.WriteTasks();
+
+    }
+
+    // view tasks menu method
     private void ViewTasks()
     {
 
@@ -132,14 +191,6 @@ public class InputController
             }
 
         }
-
-    }
-
-    private void SaveList()
-    {
-
-        console.SaveTasks();
-        model.WriteTasks();
 
     }
 
@@ -207,70 +258,6 @@ public class InputController
 
     }
 
-    private void CreateTask()
-    {
-
-        console.PromptTaskInfo();
-        string taskInfo = Console.ReadLine();
-
-        console.PromptTaskPriority();
-        string taskPriority = Console.ReadLine();
-
-        if (!int.TryParse(taskPriority, out int priority))
-        {
-
-            console.InvalidInput("Defaulting to 0");
-
-        }
-
-        console.PromptTaskTags();
-        string rawTaskTags = Console.ReadLine();
-        List<string> taskTags = new List<string>();
-        int storeIndex = 0;
-
-        for (int i = 0; i < rawTaskTags.Length; ++i)
-        {
-
-            char c = rawTaskTags[i];
-
-            if (c == ',' || i == rawTaskTags.Length - 1)
-            {
-
-                if (i == rawTaskTags.Length - 1)
-                {
-
-                    ++i;
-
-                }
-
-                taskTags.Add(rawTaskTags.Substring(storeIndex, i - storeIndex).ToLower());
-                storeIndex = i + 1; // +1 to prevent comma; assumes no spaces
-
-            }
-
-        }
-
-        Task newTask = new Task(taskInfo, priority, taskTags);
-        model.AddTask(newTask);
-
-    }
-
-    private int ParseInput()
-    {
-
-        string rawInput = Console.ReadLine();
-
-        if (!int.TryParse(rawInput, out int input))
-        {
-
-            console.InvalidInput();
-
-        }
-
-        return input;
-
-    }
-
     private void EditTask()
     {
 
@@ -300,6 +287,23 @@ public class InputController
             }
 
         }
+
+    }
+
+    // helper method
+    private int ParseInput()
+    {
+
+        string rawInput = Console.ReadLine();
+
+        if (!int.TryParse(rawInput, out int input))
+        {
+
+            console.InvalidInput();
+
+        }
+
+        return input;
 
     }
 
