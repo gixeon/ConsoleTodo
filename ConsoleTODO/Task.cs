@@ -42,7 +42,7 @@ public class Task
     public override string ToString() => $"{TaskInfo}, {Priority}, \"{ReadableTags()}\", {TaskCompleted}";
 
     // helper function to make user-friendly readable tags string
-    private string ReadableTags()
+    public string ReadableTags()
     {
 
         string readableTags = "";

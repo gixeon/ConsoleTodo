@@ -42,10 +42,26 @@ namespace ConsoleTODO
             Console.Clear();
             Console.WriteLine("These are your tasks:");
 
-            for (int i = 0; i < tasks.Count; ++i)
+            int longestInfo = 0;
+            int longestTag = 0;
+            foreach (var task in tasks)
             {
 
-                Console.WriteLine($"{i}) {tasks[i]}");
+                if (task.TaskInfo.Length > longestInfo) { longestInfo = task.TaskInfo.Length; }
+                if (task.ReadableTags().Length > longestTag) { longestTag = task.ReadableTags().Length; }
+
+            }
+
+            // first row showing column names
+            string headRow = $"{"i",-2} | {"Info".PadRight(longestInfo)} | {"Tags".PadRight(longestTag)} | {"Priority",-2} ";
+            Console.WriteLine(headRow);
+            for (int i = 0; i < headRow.Length; ++i) { Console.Write("-"); }
+            Console.WriteLine();
+            
+            for (int i = 0; i < tasks.Count; ++i)
+            {
+                
+                Console.WriteLine($"{i,-2} | {tasks[i].TaskInfo.PadRight(longestInfo)} | {tasks[i].ReadableTags().PadRight(longestTag)} | {tasks[i].Priority,-2}");
 
             }
 
@@ -71,14 +87,14 @@ namespace ConsoleTODO
         public void PromptTaskTags()
         {
 
-            Console.WriteLine("Tags: ");
+            Console.WriteLine("Tags (separated by commas, no spaces): ");
 
         }
 
         public void PromptTaskPriority()
         {
 
-            Console.WriteLine("Priority: ");
+            Console.WriteLine("Priority (1-4): ");
 
         }
 

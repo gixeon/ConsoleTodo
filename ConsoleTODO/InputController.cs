@@ -95,16 +95,6 @@ public class InputController
         console.PromptTaskInfo();
         string taskInfo = Console.ReadLine();
 
-        console.PromptTaskPriority();
-        string taskPriority = Console.ReadLine();
-
-        if (!int.TryParse(taskPriority, out int priority))
-        {
-
-            console.InvalidInput("Defaulting to 0");
-
-        }
-
         console.PromptTaskTags();
         string rawTaskTags = Console.ReadLine();
         List<string> taskTags = new List<string>();
@@ -129,6 +119,16 @@ public class InputController
                 storeIndex = i + 1; // +1 to prevent comma; assumes no spaces
 
             }
+
+        }
+
+        console.PromptTaskPriority();
+        string taskPriority = Console.ReadLine();
+
+        if (!int.TryParse(taskPriority, out int priority))
+        {
+
+            console.InvalidInput("Defaulting to 0");
 
         }
 
